@@ -63,7 +63,7 @@ app.get("/", async (req, res) => {
 
 //接收回掉
 app.post("/result", (req, res) => {
-  res.json({ status: "success" });
+  res.json({ Status: "Ok" });
 });
 
 app.listen(9000, () => {
