@@ -63,6 +63,19 @@ app.get("/", async (req, res) => {
 
 //接收回掉
 app.post("/result", (req, res) => {
+  //公钥地址
+  const pubKeyAddr = Buffer.from(
+    req.headers["x-oss-pub-key-url"],
+    "base64"
+  ).toString("ascii");
+  //判断
+  if (
+    !pubKeyAddr.startsWith("https://gosspublic.alicdn.com/") &&
+    !pubKeyAddr.startsWith("https://gosspublic.alicdn.com/")
+  ) {
+    System.out.println("pub key addr must be oss addrss");
+    res.json({ Status: "verify not ok" });
+  }
   res.json({ Status: "Ok" });
 });
 
